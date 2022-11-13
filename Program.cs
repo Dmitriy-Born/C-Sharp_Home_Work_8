@@ -1,7 +1,10 @@
-﻿
+﻿Console.WriteLine("Введите номер задания: ");
+int Ex = int.Parse(Console.ReadLine()!);
+switch(Ex){    
+    case 1:
+
 //Задание №1 (54) 
 //Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-
 Console.WriteLine("--------------------Задание №1 (54)--------------------");
 Console.WriteLine("Задайте кол-во строк: ");
 int a1 = int.Parse(Console.ReadLine()!);
@@ -13,6 +16,9 @@ Console.WriteLine();
 ArraySorting(array1);
 PrintArray(array1);
 
+        break;
+    
+    case 2:
 
 //Задание №2 (56) 
 //Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
@@ -26,6 +32,9 @@ PrintArray(array2);
 Console.WriteLine();
 SearchSum(array2);
 
+        break;
+    
+    case 3:
 
 //Задание №3 (58)
 //Задайте две квадратные матрицы. Напишите программу, которая будет находить произведение двух матриц.
@@ -40,7 +49,9 @@ PrintArray(array32);
 Console.WriteLine("Произведение матриц А и B: ");
 CompositionArray(array31, array32, a3);
 
+        break;
 
+        
 //Методы
 int[,] GetArray(int num1, int num2, int minValue, int maxValue)
 {
@@ -137,3 +148,7 @@ void CompositionArray(int[,] Array1, int[,] Array2, int number)
                 Console.WriteLine();
             }
 }
+
+
+
+}//switch
