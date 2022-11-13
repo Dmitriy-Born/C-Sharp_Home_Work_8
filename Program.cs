@@ -13,6 +13,20 @@ Console.WriteLine();
 ArraySorting(array1);
 PrintArray(array1);
 
+
+//Задание №2 (56) 
+//Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+Console.WriteLine("--------------------Задание №2 (56)--------------------");
+Console.WriteLine("Задайте кол-во строк: ");
+int a2 = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Задайте кол-во столбцов: ");
+int b2 = int.Parse(Console.ReadLine()!);
+int[,] array2 = GetArray(a2, b2, 0, 10);
+PrintArray(array2);
+Console.WriteLine();
+SearchSum(array2);
+
+
 //Методы
 int[,] GetArray(int num1, int num2, int minValue, int maxValue)
 {
@@ -65,3 +79,27 @@ void ArraySorting (int[,] Array)
         max = 0;
     }
 }
+
+//Метод нахождения наименьшей суммы в строке матрицы
+void SearchSum (int[,] Array)
+{
+    int temp = 99999; //Просто не знаю как приравнять первую строку к temp
+    int sum = 0;
+    int count = 0;
+    for (int i = 0; i < Array.GetLength(0); i++)
+    {
+        for (int j = 0; j < Array.GetLength(1); j++)
+        {
+               sum += Array[i,j];
+        }    
+
+        if (sum < temp)
+        {
+            temp = sum;
+            count = i + 1;
+        }
+        sum = 0;
+    }
+    Console.WriteLine($"Строка с минимальной суммой эдементов в матрице является строка №{count} и ее сумма = "+ temp);
+}
+
