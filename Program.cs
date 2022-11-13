@@ -27,6 +27,20 @@ Console.WriteLine();
 SearchSum(array2);
 
 
+//Задание №3 (58)
+//Задайте две квадратные матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Console.WriteLine("Задайте размерность первой и второй квадратным матрицам: ");
+int a3 = int.Parse(Console.ReadLine()!);
+int[,] array31 = GetArray(a3, a3, 0, 10);
+int[,] array32 = GetArray(a3, a3, 0, 10);
+Console.WriteLine("Первая матрица A: ");
+PrintArray(array31);
+Console.WriteLine("Вторая матрица B: ");
+PrintArray(array32);
+Console.WriteLine("Произведение матриц А и B: ");
+CompositionArray(array31, array32, a3);
+
+
 //Методы
 int[,] GetArray(int num1, int num2, int minValue, int maxValue)
 {
@@ -103,3 +117,23 @@ void SearchSum (int[,] Array)
     Console.WriteLine($"Строка с минимальной суммой эдементов в матрице является строка №{count} и ее сумма = "+ temp);
 }
 
+//Метод перемножения квадратных матриц
+void CompositionArray(int[,] Array1, int[,] Array2, int number)
+{
+    int[,] ArrayResult = GetArray(a3, a3, 0, 0);
+    int k = 0;
+    for (int i = 0; i < Array1.GetLength(0); i++)
+            {
+                for (int j = 0; j < Array2.GetLength(1); j++)
+                {
+                    while(k < Array2.GetLength(0))
+                    {
+                        ArrayResult[i,j] += Array1[i,k] * Array2[k,j];
+                        k++;
+                    }
+                    Console.Write($"{ArrayResult[i,j],3} ");
+                    k = 0;
+                }
+                Console.WriteLine();
+            }
+}
